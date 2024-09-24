@@ -1,0 +1,20 @@
+setg RHOSTS <target_ip>
+
+setg SMBUser <username>
+setg SMBPass <password>
+
+use auxiliary/scanner/smb/smb_version
+run
+
+use auxiliary/scanner/smb/smb_ms17_010
+run
+
+use auxiliary/scanner/smb/smb_enumshares
+run
+
+use auxiliary/scanner/smb/smb_enumusers
+run
+
+spool /path/to/save/horus_smb_report_<target_ip>.txt
+
+spool off
