@@ -1,0 +1,9 @@
+setg RHOSTS <target_ip>
+
+db_nmap -p- -sV -O --script vuln -T4 <target_ip> -oN /path/to/save/tcp_recon_<target_ip>.txt
+
+db_nmap -sU -p- -sV --script vuln -T4 <target_ip> -oN /path/to/save/udp_recon_<target_ip>.txt
+
+spool /path/to/save/horus_recon_report_<target_ip>.txt
+
+spool off
