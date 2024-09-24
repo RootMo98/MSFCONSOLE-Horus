@@ -1,0 +1,19 @@
+setg RHOSTS <target_ip>
+
+set RPORT 80
+use auxiliary/scanner/http/http_version
+run
+
+use auxiliary/scanner/http/http_vuln_scanner
+run
+
+set RPORT 443
+use auxiliary/scanner/http/http_version
+run
+
+use auxiliary/scanner/http/http_vuln_scanner
+run
+
+spool /path/to/save/horus_http_report_<target_ip>.txt
+
+spool off
