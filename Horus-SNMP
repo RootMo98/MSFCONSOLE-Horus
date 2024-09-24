@@ -1,0 +1,13 @@
+setg RHOSTS <target_ip>
+
+use auxiliary/scanner/snmp/snmp_enum
+run
+
+use auxiliary/scanner/snmp/snmp_login
+set PASS_FILE /path/to/community_strings.txt
+set THREADS 5
+run
+
+spool /path/to/save/horus_snmp_report_<target_ip>.txt
+
+spool off
