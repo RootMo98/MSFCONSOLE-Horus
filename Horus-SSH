@@ -1,0 +1,15 @@
+setg RHOSTS <target_ip>
+
+set RPORT 22
+use auxiliary/scanner/ssh/ssh_version
+run
+
+use auxiliary/scanner/ssh/ssh_login
+set USER_FILE /path/to/userlist.txt
+set PASS_FILE /path/to/passwordlist.txt
+set THREADS 5
+run
+
+spool /path/to/save/horus_ssh_report_<target_ip>.txt
+
+spool off
