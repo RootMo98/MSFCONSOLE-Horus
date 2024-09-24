@@ -1,0 +1,15 @@
+setg RHOSTS <target_ip>
+
+set RPORT 21
+use auxiliary/scanner/ftp/ftp_version
+run
+
+use auxiliary/scanner/ftp/ftp_login
+set USER_FILE /path/to/userlist.txt
+set PASS_FILE /path/to/passwordlist.txt
+set THREADS 5
+run
+
+spool /path/to/save/horus_ftp_report_<target_ip>.txt
+
+spool off
